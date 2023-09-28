@@ -1,24 +1,23 @@
 package streams;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.net.*;
 
 import entidades.Pessoa;
 
 public class PessoasOutputStream extends OutputStream {
 	
 	private OutputStream op;
-	private Pessoa[] pessoas;
+	private Pessoa[] pessoas; //mesma coisa de antes
 	
 	public PessoasOutputStream() {}
 	
-	public PessoasOutputStream(Pessoa[] p, OutputStream os) {
+	public PessoasOutputStream(Pessoa[] p, OutputStream os) { //construtor de novo
 		this.pessoas = p;
 		this.op = os;
 	}
 
-	public void writeSystem() {
+	public void writeSystem() { //esse método printa os dados dos objetos que estão no vertor pessoas
 		
 		PrintStream opLocal = new PrintStream(op);
 		
@@ -42,12 +41,29 @@ public class PessoasOutputStream extends OutputStream {
 		}
 	}
 
-	public void writeFile() {
+	public void writeFile() { //suponho pelo nome que é pra salvar os dados de pessoa em um arquivo
 		// envia os dados de um conjunto (array) de Pessoas
 	}
 	
-	public void writeTCP() {
-		// envia os dados de um conjunto (array) de Pessoas
+	public void writeTCP() { //envia os dados do array pessoas via TCP para algum lugar
+		int porta = 7888; //porta do servidor que vai receber
+		Socket s;
+		try {
+			s = new Socket("localhost",porta); //criando o socket 
+			ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream()); //criando objeto de envio
+			for(Pessoa pessoa : pessoas) { //enviando cada um dos objetos de pessoa
+				out.writeObject(pessoa);
+			}
+			out.writeObject(null);  //sinalizando o fim do envio
+			out.close();
+			s.close(); //fechado a conexão
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //criando socket	
 	}		
 	
 	@Override
@@ -56,7 +72,7 @@ public class PessoasOutputStream extends OutputStream {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() { //esse é o metodo toString
 		return "Ola, mundo! Estamos sobrescrevendo o mÃ©todo toString()!\n"
 				+ " PessoasOutputStream [ \n"
 				+ " getClass()=" + getClass() +",\n"

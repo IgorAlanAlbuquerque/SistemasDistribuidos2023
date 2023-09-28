@@ -2,16 +2,16 @@ package entidades;
 
 public class Pessoa {
 	private String nome;
-	private double cpf;
+	private double cpf;  //atributos privados da pessoa
 	private int idade;
 	
-	public Pessoa(String nome, double cpf, int idade) {
+	public Pessoa(String nome, double cpf, int idade) { //construtor de pessoa que recebe nome, CPF e idade
 		this.nome = nome;
 		this.cpf = cpf;
 		this.idade = idade;
 	}
-	
-	public String getNome() {
+	//aqui pra baixo são os gets e sets dos atributos de pessoa
+	public String getNome() { 
 		return nome;
 	}
 	public void setNome(String nome) {
