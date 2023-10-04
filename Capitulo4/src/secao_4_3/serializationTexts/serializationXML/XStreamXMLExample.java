@@ -24,20 +24,21 @@ public class XStreamXMLExample {
 		
 		XStream instream = new XStream();
 
-		BufferedReader br = new BufferedReader(new FileReader("pessoa.xml"));
-		StringBuffer buff = new StringBuffer();
-		String line;
-		while((line = br.readLine()) != null){
-		   buff.append(line);
+		try (BufferedReader br = new BufferedReader(new FileReader("pessoa.xml"))) {
+			StringBuffer buff = new StringBuffer();
+			String line;
+			while((line = br.readLine()) != null){
+			   buff.append(line);
+			}
+			
+			instream.alias("Pessoa", secao_4_2.entidades.Pessoa.class);
+			instream.addPermission(AnyTypePermission.ANY);
+			
+			Pessoa p = (Pessoa)instream.fromXML(buff.toString());
+			System.out.println("Nome: "+p.getNome());
+			System.out.println("CPF: "+p.getCpf());
+			System.out.println("idade: "+p.getIdade());
 		}
-		
-		instream.alias("Pessoa", secao_4_2.entidades.Pessoa.class);
-		instream.addPermission(AnyTypePermission.ANY);
-		
-		Pessoa p = (Pessoa)instream.fromXML(buff.toString());
-		System.out.println("Nome: "+p.getNome());
-		System.out.println("CPF: "+p.getCpf());
-		System.out.println("idade: "+p.getIdade());
 	}
 	
 	

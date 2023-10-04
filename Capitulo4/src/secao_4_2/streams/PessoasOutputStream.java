@@ -58,17 +58,17 @@ public class PessoasOutputStream extends OutputStream {
 			out.close();
 			s.close(); //fechado a conex�o
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 		} //criando socket	
 	}		
 	
 	@Override
 	public void write(int b) throws IOException {
-		// TODO Auto-generated method stub
+		// 
 	}
 
 	@Override

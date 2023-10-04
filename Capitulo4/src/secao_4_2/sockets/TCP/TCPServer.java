@@ -8,12 +8,13 @@ public class TCPServer {
 		try {
 			System.out.println("Servidor iniciado");
 			int serverPort = 7896; // the server port
-			ServerSocket listenSocket = new ServerSocket(serverPort);
-			while (true) {
-				Socket clientSocket = listenSocket.accept();
-				System.out.println(clientSocket.getInetAddress());
-				System.out.println("conexão estabelecida");
-				Connection c = new Connection(clientSocket);
+			try (ServerSocket listenSocket = new ServerSocket(serverPort)) {
+				while (true) {
+					Socket clientSocket = listenSocket.accept();
+					System.out.println(clientSocket.getInetAddress());
+					System.out.println("conexão estabelecida");
+					new Connection(clientSocket);
+				}
 			}
 		} catch (IOException e) {
 			System.out.println("Listen socket:" + e.getMessage());

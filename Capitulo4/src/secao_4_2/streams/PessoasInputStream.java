@@ -48,10 +48,10 @@ public class PessoasInputStream extends InputStream {
 			s.close(); //fechando o socket
 			pessoas[0] = pessoa; //adiciona ao array
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 		}
 		
@@ -60,7 +60,7 @@ public class PessoasInputStream extends InputStream {
 
 	@Override
 	public int read() throws IOException {
-		// TODO Auto-generated method stub
+		// 
 		return 0;
 	}
 

@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "XStreamXMLExample",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationTexts.serializationXML.XStreamXMLExample",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
+            "name": "XStreamXML",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationTexts.serializationXML.XStreamXML",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
+            "name": "XStreamJSONExample",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationTexts.serializationJSON.XStreamJSONExample",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
+            "name": "JAXBExample",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationTexts.serializationJSON.JAXBExample",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
+            "name": "Exemplo1",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationBinary.serialization.Exemplo1",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
+            "name": "ExemploStream",
+            "request": "launch",
+            "mainClass": "secao_4_3.serializationBinary.serialization.ExemploStream",
+            "projectName": "Capitulo4_novo"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
