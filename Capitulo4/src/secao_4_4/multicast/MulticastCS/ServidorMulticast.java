@@ -11,7 +11,7 @@ public class ServidorMulticast {
 			InetAddress addr = InetAddress.getByName("239.0.0.1");
 			DatagramSocket ds = new DatagramSocket();
 			
-			byte[] b = "Ola Mundo SD 2022.2 de novo".getBytes();
+			byte[] b = "Ain zé da maaanga".getBytes();
 			DatagramPacket pkg = new DatagramPacket(b, b.length, addr, 12347);
 			
 			ds.send(pkg);

@@ -1,23 +1,24 @@
 package secao_4_2.streams;
 
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
 import secao_4_2.entidades.Pessoa;
 
 public class PessoasOutputStream extends OutputStream {
 	
 	private OutputStream op;
-	private Pessoa[] pessoas; //mesma coisa de antes
+	private Pessoa[] pessoas;
 	
 	public PessoasOutputStream() {}
 	
-	public PessoasOutputStream(Pessoa[] p, OutputStream os) { //construtor de novo
+	public PessoasOutputStream(Pessoa[] p, OutputStream os) {
 		this.pessoas = p;
 		this.op = os;
 	}
 
-	public void writeSystem() { //esse m�todo printa os dados dos objetos que est�o no vertor pessoas
+	public void writeSystem() {
 		
 		PrintStream opLocal = new PrintStream(op);
 		
@@ -41,44 +42,26 @@ public class PessoasOutputStream extends OutputStream {
 		}
 	}
 
-	public void writeFile() { //suponho pelo nome que � pra salvar os dados de pessoa em um arquivo
+	public void writeFile() {
 		// envia os dados de um conjunto (array) de Pessoas
 	}
 	
-	public void writeTCP() { //envia os dados do array pessoas via TCP para algum lugar
-		int porta = 7888; //porta do servidor que vai receber
-		Socket s;
-		try {
-			s = new Socket("localhost",porta); //criando o socket 
-			ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream()); //criando objeto de envio
-			for(Pessoa pessoa : pessoas) { //enviando cada um dos objetos de pessoa
-				out.writeObject(pessoa);
-			}
-			out.writeObject(null);  //sinalizando o fim do envio
-			out.close();
-			s.close(); //fechado a conex�o
-		} catch (UnknownHostException e) {
-			// 
-			e.printStackTrace();
-		} catch (IOException e) {
-			// 
-			e.printStackTrace();
-		} //criando socket	
+	public void writeTCP() {
+		// envia os dados de um conjunto (array) de Pessoas
 	}		
 	
 	@Override
 	public void write(int b) throws IOException {
-		// 
+		
 	}
 
 	@Override
-	public String toString() { //esse � o metodo toString
+	public String toString() {
 		return "Ola, mundo! Estamos sobrescrevendo o método toString()!\n"
 				+ " PessoasOutputStream [ \n"
 				+ " getClass()=" + getClass() +",\n"
 				+ " hashCode()=" + hashCode() +",\n"
 				+ " toString()="+ super.toString() + "]";
 	}
-
 }
 
